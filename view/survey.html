@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var listQuestion
+        let currentQuestion = 0
+        var listAnswer = []
+        var listUserAnswer = {};
+        var mark = 0
+
+        function getAllQuestion() {
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    listQuestion = JSON.parse(this.responseText)
+                    console.log(listQuestion);
+                }
+            };
+
+            request.open('GET', 'https://localhost:8080/question', true);
+            request.setRequestHeader('api-key', 'your-api-key');
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send();
+        }
+
+        function submitAll() {
+            var request = new XMLHttpRequest();
+
+            request.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    listAnswer = JSON.parse(this.responseText)
+                    console.log(listAnswer);
+                }
+            };
+
+            request.open('PUT', 'https://localhost:8080/submitall', true);
+            request.send();
+        }
+
+
+        function submitChangeQuestion() {
+
+            if (currentQuestion != listQuestion.length - 1) {
+                currentQuestion++
+            } else {
+                var submit = document.createElement("button")
+                submit.setAttribute("type", "button")
+                submit.innerHTML = "Finish and submit"
+                submit.setAttribute("onclick", "submitAll()")
+                document.body.appendChild(submit)
+            }
+            var arr = []
+            var bo = 0
+            var ul = document.getElementById("ul_tag")
+            for (let i = 0; i < ul.childElementCount; i++) {
+                if (ul.childNodes[i].childNodes[1].checked == true) {
+                    arr.push(bo)
+                }
+                bo++
+            }
+            listUserAnswer[currentQuestion] = arr
+            console.log(arr)
+            var xhr = new XMLHttpRequest();
+            var url = "https://localhost:8080/submitone";
+            var data = JSON.stringify({
+                question_id: listQuestion[currentQuestion].question_id,
+                answer: arr
+            })
+
+            xhr.open("PUT", url, true);
+            xhr.send(data);
+
+            setTimeout(function afterTwoSeconds() {
+                renderQuestion();
+            }, 300)
+        }
+
+        function renderQuestion() {
+
+
+            var cha = document.getElementById("div")
+            if (cha !== null) {
+                cha.remove()
+            }
+            var div = document.createElement("div")
+            div.setAttribute("id", "div")
+            document.body.appendChild(div)
+            var p1 = document.createElement("p")
+            p1.innerHTML = "Có tất cả " + listQuestion.length + " câu hỏi"
+                // document.getElementById("quesnum").innerHTML
+
+            var p2 = document.createElement("p")
+            p2.innerHTML = "Câu hỏi số " + (currentQuestion + 1)
+
+
+            var q = document.createElement("p")
+            q.innerHTML = listQuestion[currentQuestion].question
+
+            var ul = document.createElement("ul")
+            ul.setAttribute("id", "ul_tag")
+            div.appendChild(p1)
+            div.appendChild(p2)
+            div.appendChild(q)
+            div.appendChild(ul)
+
+            if (listAnswer.length > 0) {
+
+                if (listUserAnswer[currentQuestion].answer === listAnswer[currentQuestion].answer) {
+                    mark++
+                    p2.innerHTML += "đúng"
+                    p2.style.color = "green"
+                } else {
+                    p2.innerHTML += "sai"
+                    p2.style.color = "red"
+                }
+                var cor = document.createElement("p")
+                cor.innerHTML = "Correct answer is " + listAnswer[currentQuestion].answer
+            }
+
+
+            for (let i = 0; i < listQuestion[currentQuestion].list_choose.length; i++) {
+                var li = document.createElement("li")
+
+                var checkbox = document.createElement("input")
+                checkbox.setAttribute("type", "checkbox");
+                li.innerHTML = listQuestion[currentQuestion].list_choose[i]
+                li.appendChild(checkbox)
+                ul.appendChild(li)
+
+            }
+            // for (let i = 0; i < listUserAnswer.currentQuestion.length; i++) {
+            //     // if (currentQuestion in listAnswer) {
+            //     ul.childNodes[i].childNodes[1].checked = true
+            //         //}
+            // }
+
+        }
+
+        function GoBack() {
+            if (currentQuestion > 0) {
+                currentQuestion--
+                setTimeout(function afterTwoSeconds() {
+                    renderQuestion();
+                }, 100)
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Answer question</h1>
+    <script>
+        getAllQuestion();
+        setTimeout(function afterTwoSeconds() {
+            renderQuestion();
+        }, 500)
+    </script>
+    <button id="btnbak" type="button" onclick="GoBack()">Go Back</button>
+    <button id="btnext" type="button" onclick="submitChangeQuestion()">Save and next</button>
+
+</body>
+
+</html>

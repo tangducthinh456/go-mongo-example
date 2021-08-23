@@ -1,0 +1,128 @@
+[{
+        "question_id": "",
+        "question": "“Làn đường” là gì?",
+        "list_choose": [
+            "1-Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, sử dụng cho xe chạy.",
+            "2-Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, có bề rộng đủ cho xe chạy an toàn.",
+            "3-Là đường cho xe ô tô chạy, dừng, đỗ an toàn."
+        ],
+        "answers": [
+            2
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "*Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma tuý có bị nghiêm cấm hay không?",
+        "list_choose": [
+            "1-Bị nghiêm cấm.",
+            "2-Không bị nghiêm cấm.",
+            "3-Không bị nghiêm cấm, nếu có chất ma tuý ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông."
+        ],
+        "answers": [
+            1
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây ?",
+        "list_choose": [
+            "1- Để điều khiển xe chạy về phía trước.",
+            "2- Để điều tiết công suất động cơ qua đó điều khiển tốc độ của xe.",
+            "3- Để điều khiển xe chạy lùi."
+        ],
+        "answers": [
+            1,
+            2
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông ?",
+        "list_choose": [
+            "1- Phải báo hiệu bằng đèn hoặc còi.",
+            "2- Chỉ được báo hiệu bằng còi.",
+            "3- Phải báo hiệu bằng cả còi và đèn.",
+            "4- Chỉ được báo hiệu bằng đèn."
+        ],
+        "answers": [
+            4
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không ?",
+        "list_choose": [
+            "1- Chỉ được kéo nếu đã nhìn thấy trạm xăng.",
+            "2- Chỉ được thực hiện trên đường vắng phương tiện cùng tham gia giao thông.",
+            "3- Không được phép."
+        ],
+        "answers": [
+            3
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây ?",
+        "list_choose": [
+            "1- Ra tín hiệu bằng tay rồi cho xe vượt qua.",
+            "2- Tăng ga mạnh để gây sự chú ý rồi cho xe vượt qua.",
+            "3- Bạn phải có tín hiệu bằng đèn hoặc còi."
+        ],
+        "answers": [
+            3
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Bạn có người yêu chưa ?",
+        "list_choose": [
+            "1- Chưa.",
+            "2- Đã có",
+            "3- Có rất nhiều"
+        ],
+        "answers": [
+            2,
+            3
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Bạn sinh năm bao nhiêu ?",
+        "list_choose": [
+            "1- 1980-1990",
+            "2- 1970-1995.",
+            "3- 2000 trở đi"
+        ],
+        "answers": [
+            1,
+            2
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Bạn nghĩ bạn có thể thi đỗ ?",
+        "list_choose": [
+            "1- Tôi không chắc lắm",
+            "2- Tôi khá chắc",
+            "3- Tôi có thể thi đỗ"
+        ],
+        "answers": [
+            1,
+            3
+        ]
+    },
+    {
+        "question_id": "",
+        "question": "Chúc bạn may mắn",
+        "list_choose": [
+            "1- Good luck",
+            "2- Nice to meet you",
+            "3- Goodbye"
+        ],
+        "answers": [
+            1,
+            2,
+            3
+        ]
+    }
+]
